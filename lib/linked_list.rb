@@ -2,7 +2,6 @@ class LinkedList
   attr_reader :head, :count
    def initialize
     @head = nil 
-    @count = 0
   end
 
   def append(sound)
@@ -11,6 +10,7 @@ class LinkedList
   end
 
   def count
+    @count = 0
     if head = nil
       count = 0
     else
@@ -19,6 +19,6 @@ class LinkedList
   end
 
   def to_string
-    
+    @head.data.to_s
   end
 end

@@ -16,26 +16,27 @@ RSpec.describe LinkedList do
 
   it 'appends data to head' do
     list = LinkedList.new
-    node = Node.new('doop')
+    list.append('doop')
 
-    expect(list.append('doop')).to eq(node)  
+    expect(list.head.data).to eq('doop')
+    expect(list.head).to be_instance_of(Node)
   end 
 
-  xit 'shows next node' do
+  it 'shows next node' do
     list = LinkedList.new
     list.append('doop')
 
     expect(list.head.next_node).to be nil
   end
 
-  xit 'counts nodes' do
+  it 'counts nodes' do
     list = LinkedList.new
     list.append('doop')
 
     expect(list.count).to eq(1)
   end
 
-  xit 'prints nodes to string' do
+  it 'prints nodes to string' do
     list = LinkedList.new
     list.append('doop')
 
