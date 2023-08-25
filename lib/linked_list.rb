@@ -1,12 +1,24 @@
 class LinkedList
-  attr_reader :head
+  attr_reader :head, :count
    def initialize
     @head = nil 
+    @count = 0
   end
 
   def append(sound)
-    @append = Node.new(sound)
+    @head = Node.new(sound)
+   
   end
 
+  def count
+    if head = nil
+      count = 0
+    else
+      @count += 1
+    end
+  end
 
+  def to_string
+    
+  end
 end
