@@ -1,5 +1,6 @@
 require './lib/linked_list'
 require './lib/node'
+require 'pry'
 
 RSpec.describe LinkedList do
   it 'exist' do
@@ -41,5 +42,15 @@ RSpec.describe LinkedList do
     list.append('doop')
 
     expect(list.to_string).to eq('doop')
+  end
+
+  it 'adds another sound' do
+    list = LinkedList.new
+    list.append('doop')
+    list.append('deep')
+    expect(list.head.next_node).to be nil
+    expect(list.count).to eq(2)
+    expect(list.to_stirng).to eq('doop deep')
+
   end
 end

@@ -1,27 +1,28 @@
 class LinkedList
   attr_reader :head, :count
-   def initialize
+  def initialize
     @head = nil 
   end
 
   def append(sound)
-    @head = Node.new(sound)
-    # new_node = Node.new(sound)
-    #   if @head.nil?
-    #     @head = new_node
-    #   else
-    #     current = @head
-    #     current = current.next until current.next.nil?
-    #     current.next = new_node
-    #   end
+    new_node = Node.new(sound)
+    if @head == nil
+      @head = new_node
+    end
+
+    current = @head
+    while current.next_node != nil
+      current = current.next_node
+    end
+      current.next_node = new_node
   end
 
   def count
     @count =0
     if @head == nil
       return 0
-    elsif @head.next_node == nil
-      return @count += 1 
+    else @head.next_node == nil
+      return @count += 1
     end 
   end
 
