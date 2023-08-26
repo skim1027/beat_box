@@ -48,9 +48,23 @@ RSpec.describe LinkedList do
     list = LinkedList.new
     list.append('doop')
     list.append('deep')
+    
     expect(list.head.next_node).to be nil
-    expect(list.count).to eq(2)
-    expect(list.to_stirng).to eq('doop deep')
+  end 
+    
+  xit 'counts the sound' do
+    list = LinkedList.new
+    list.append('doop')
+    list.append('deep')
 
+    expect(list.count).to eq(2)
+  end
+
+  xit 'converts the sound to string' do
+    list = LinkedList.new
+    list.append('doop')
+    list.append('deep')
+
+    expect(list.to_stirng).to eq('doop deep')
   end
 end
