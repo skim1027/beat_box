@@ -68,4 +68,13 @@ RSpec.describe LinkedList do
 
     expect(list.to_string).to eq('doop deep')
   end
+
+  it 'prepend the sound in the first position' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+
+    expect(list.to_string).to eq('dop plot suu')
+  end
 end
