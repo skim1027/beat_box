@@ -18,18 +18,27 @@ class LinkedList
   end
 
   def count
+    current = @head
+    total = 1
     if @head == nil
-      return 0
-    else 
-      count = 0 if current = @head
-      while @head.next_node == nil
-        count += 1
+      total = 0
+    else
+      while current.next_node != nil
+        current = current.next_node
+        total += 1
       end
-      count
     end
+    total
   end
 
   def to_string
-    @head.data.to_s
+    string = ""
+    current = @head
+    while current != nil
+      string << current.data.to_s + " "
+      current = current.next_node
+    end
+    string.strip
+    #binding.pry
   end
 end
