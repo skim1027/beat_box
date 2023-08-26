@@ -8,22 +8,25 @@ class LinkedList
     new_node = Node.new(sound)
     if @head == nil
       @head = new_node
-    end
-
-    current = @head
-    while current.next_node != nil
-      current = current.next_node
-    end
+    else 
+      current = @head
+      while current.next_node != nil
+        current = current.next_node
+      end
       current.next_node = new_node
+    end
   end
 
   def count
-    @count =0
     if @head == nil
       return 0
-    else @head.next_node == nil
-      return @count += 1
-    end 
+    else 
+      count = 0 if current = @head
+      while @head.next_node == nil
+        count += 1
+      end
+      count
+    end
   end
 
   def to_string

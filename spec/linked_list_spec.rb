@@ -49,7 +49,8 @@ RSpec.describe LinkedList do
     list.append('doop')
     list.append('deep')
     
-    expect(list.head.next_node).to be nil
+    expect(list.head.next_node).to be_instance_of(Node)
+    expect(list.head.next_node.next_node).to be nil
   end 
     
   xit 'counts the sound' do
