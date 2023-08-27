@@ -75,6 +75,16 @@ RSpec.describe LinkedList do
     list.append("suu")
     list.prepend("dop")
 
-    expect(list.to_string).to eq('dop plot suu')
+    expect(list.to_string).to eq('dop plop suu')
+  end
+
+  it 'insert the sound at a location' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, 'woo')
+
+    expect(list.to_string).to eq('dop woo plop suu')
   end
 end

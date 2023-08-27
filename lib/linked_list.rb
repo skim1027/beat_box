@@ -19,10 +19,10 @@ class LinkedList
 
   def count
     current = @head
-    total = 1
     if @head == nil
       total = 0
     else
+      total = 1
       while current.next_node != nil
         current = current.next_node
         total += 1
@@ -39,6 +39,38 @@ class LinkedList
       current = current.next_node
     end
     string.strip
-    #binding.pry
+  end
+
+
+  def prepend(sound)
+    # adding a node in the beginning
+    new_node = Node.new(sound)  
+    #1. ask the head are you the head?
+    if @head == nil
+      @head = new_node
+    else
+      new_node.next_node = @head
+      @head = new_node
+    end
+    #2. add the node in front 
+  end
+
+  def insert(position, word)
+    #adding a node at a specific location
+    #1. creat the new node 
+    new_node = Node.new(sound)  
+    
+    #4. add the node in front of that position
+    if @head == nil
+      @head = new_node
+      #2. ask a node, are you a poisition x? using loop
+    else 
+      current = @head
+      while current.next_node != nil
+        current = current.next_node
+      end
+      current.next_node = new_node
+    end
+    #3. need a pointer for the old position  
   end
 end
