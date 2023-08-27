@@ -3,73 +3,87 @@ require './lib/node'
 require 'pry'
 
 RSpec.describe LinkedList do
-  it 'exist' do
-    list = LinkedList.new
+  
+  Describe '#Initialize' do
+    it 'exist' do
+      list = LinkedList.new
 
-    expect(list).to be_instance_of(LinkedList)
+      expect(list).to be_instance_of(LinkedList)
+    end
+  
+    it 'shows status of head' do
+      list = LinkedList.new
+
+      expect(list.head).to be nil 
+    end
   end
 
-  it 'shows status of head' do
-    list = LinkedList.new
+  Describe '#append method' do
+    it 'appends data to head' do
+      list = LinkedList.new
+      list.append('doop')
 
-    expect(list.head).to be nil
+      expect(list.head.data).to eq('doop')
+      expect(list.head).to be_instance_of(Node)
+    end 
+
+    it 'shows next node' do
+      list = LinkedList.new
+      list.append('doop')
+
+      expect(list.head.next_node).to be nil
+    end
   end
 
-  it 'appends data to head' do
-    list = LinkedList.new
-    list.append('doop')
+  Describe '#count method' do
+    it 'counts nodes' do
+      list = LinkedList.new
+      list.append('doop')
 
-    expect(list.head.data).to eq('doop')
-    expect(list.head).to be_instance_of(Node)
-  end 
-
-  it 'shows next node' do
-    list = LinkedList.new
-    list.append('doop')
-
-    expect(list.head.next_node).to be nil
+      expect(list.count).to eq(1)
+    end
   end
 
-  it 'counts nodes' do
-    list = LinkedList.new
-    list.append('doop')
+  Describe '#to string method' do
+    it 'prints nodes to string' do
+      list = LinkedList.new
+      list.append('doop')
+      
+      expect(list.to_string).to eq('doop')
+    end
 
-    expect(list.count).to eq(1)
+    it 'converts the sound to string' do
+      list = LinkedList.new
+      list.append('doop')
+      list.append('deep')
+  
+      expect(list.to_string).to eq('doop deep')
+    end
   end
 
-  it 'prints nodes to string' do
-    list = LinkedList.new
-    list.append('doop')
-
-    expect(list.to_string).to eq('doop')
+  Describe '#append method' do
+    it 'adds another sound' do
+      list = LinkedList.new
+      list.append('doop')
+      list.append('deep')
+      
+      expect(list.head.next_node).to be_instance_of(Node)
+      expect(list.head.next_node.next_node).to be nil
+    end 
   end
 
-  it 'adds another sound' do
-    list = LinkedList.new
-    list.append('doop')
-    list.append('deep')
-    
-    expect(list.head.next_node).to be_instance_of(Node)
-    expect(list.head.next_node.next_node).to be nil
-  end 
-    
-  it 'counts the sound' do
-    list = LinkedList.new
-    list.append('doop')
-    list.append('deep')
-
-    expect(list.count).to eq(2)
+  Describe '#count method' do
+    it 'counts the sound' do
+      list = LinkedList.new
+      list.append('doop')
+      list.append('deep')
+      
+      expect(list.count).to eq(2)
+    end
   end
 
-  it 'converts the sound to string' do
-    list = LinkedList.new
-    list.append('doop')
-    list.append('deep')
-
-    expect(list.to_string).to eq('doop deep')
-  end
-
-  it 'prepend the sound in the first position' do
+  Describe '#prepend method' do
+    it 'prepend the sound in the first position' do
     list = LinkedList.new
     list.append("plop")
     list.append("suu")
@@ -78,13 +92,60 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq('dop plop suu')
   end
 
-  it 'insert the sound at a location' do
-    list = LinkedList.new
-    list.append("plop")
-    list.append("suu")
-    list.prepend("dop")
-    list.insert(1, 'woo')
-
-    expect(list.to_string).to eq('dop woo plop suu')
+  Describe '#insert method' do
+    it 'insert the sound at a location' do
+      list = LinkedList.new
+      list.append("plop")
+      list.append("suu")
+      list.prepend("dop")
+      list.insert(1, 'woo')
+  
+      expect(list.to_string).to eq('dop woo plop suu')
+    end
   end
+
+  Describe '#find method' do
+    it 'find the sound at a lotcation' do
+      list = LinkedList.new
+      list.append("deep")
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+
+      expect(list.to_string).to eq('deep woo shi shu blop')
+      expect(list.find(2, 1)).to eq('shi')
+      expect(list.find(1, 3)).to eq('woo shi shu')
+    end
+  end
+
+  Describe '#include? method' do
+    it 'tells you if string includes a sound' do
+      list = LinkedList.new
+      list.append("deep")
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+
+      expect(list.include?('deep')).to be true
+      expect(list.include?('dep')).to be false
+    end
+  end
+
+  Describe '#pop method' do
+    it 'prints and remove last sound' do
+      list.append("deep")
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+
+      expect(list.pop).to eq('blop')
+      expect(list.pop).to eq('shu')
+      expect(list.to_string).to eq('deep woo shi')
+    end
+  end
+
+  
 end
