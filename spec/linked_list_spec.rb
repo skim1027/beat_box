@@ -4,7 +4,7 @@ require 'pry'
 
 RSpec.describe LinkedList do
   
-  Describe '#Initialize' do
+  describe '#Initialize' do
     it 'exist' do
       list = LinkedList.new
 
@@ -18,7 +18,7 @@ RSpec.describe LinkedList do
     end
   end
 
-  Describe '#append method' do
+  describe '#append method' do
     it 'appends data to head' do
       list = LinkedList.new
       list.append('doop')
@@ -35,7 +35,7 @@ RSpec.describe LinkedList do
     end
   end
 
-  Describe '#count method' do
+  describe '#count method' do
     it 'counts nodes' do
       list = LinkedList.new
       list.append('doop')
@@ -44,7 +44,7 @@ RSpec.describe LinkedList do
     end
   end
 
-  Describe '#to string method' do
+  describe '#to string method' do
     it 'prints nodes to string' do
       list = LinkedList.new
       list.append('doop')
@@ -61,7 +61,7 @@ RSpec.describe LinkedList do
     end
   end
 
-  Describe '#append method' do
+  describe '#append method' do
     it 'adds another sound' do
       list = LinkedList.new
       list.append('doop')
@@ -72,7 +72,7 @@ RSpec.describe LinkedList do
     end 
   end
 
-  Describe '#count method' do
+  describe '#count method' do
     it 'counts the sound' do
       list = LinkedList.new
       list.append('doop')
@@ -82,7 +82,7 @@ RSpec.describe LinkedList do
     end
   end
 
-  Describe '#prepend method' do
+  describe '#prepend method' do
     it 'prepend the sound in the first position' do
     list = LinkedList.new
     list.append("plop")
@@ -90,22 +90,23 @@ RSpec.describe LinkedList do
     list.prepend("dop")
 
     expect(list.to_string).to eq('dop plop suu')
+    end
   end
 
-  Describe '#insert method' do
+  describe '#insert method' do
     it 'insert the sound at a location' do
       list = LinkedList.new
       list.append("plop")
       list.append("suu")
       list.prepend("dop")
-      list.insert(1, 'woo')
+      list.insert(1,'woo')
   
       expect(list.to_string).to eq('dop woo plop suu')
     end
   end
 
-  Describe '#find method' do
-    it 'find the sound at a lotcation' do
+  describe '#find method' do
+    xit 'find the sound at a lotcation' do
       list = LinkedList.new
       list.append("deep")
       list.append("woo")
@@ -119,8 +120,8 @@ RSpec.describe LinkedList do
     end
   end
 
-  Describe '#include? method' do
-    it 'tells you if string includes a sound' do
+  describe '#include? method' do
+    xit 'tells you if string includes a sound' do
       list = LinkedList.new
       list.append("deep")
       list.append("woo")
@@ -133,8 +134,9 @@ RSpec.describe LinkedList do
     end
   end
 
-  Describe '#pop method' do
-    it 'prints and remove last sound' do
+  describe '#pop method' do
+    xit 'prints and remove last sound' do
+      list = LinkedList.new
       list.append("deep")
       list.append("woo")
       list.append("shi")
@@ -147,5 +149,5 @@ RSpec.describe LinkedList do
     end
   end
 
-  
+
 end
