@@ -86,7 +86,6 @@ class LinkedList
       
   end
 
-
   def include?(sound)
     current = @head
     until current.next_node == nil
@@ -99,11 +98,13 @@ class LinkedList
   end
 
   def pop
-    
-
-  
+    current = @head
+    node = @head.data
+    while current.next_node.next_node != nil
+      current = current.next_node
+    end
+    node = current.next_node.data
+    current.next_node = nil
+    return node
   end
-  
-
-
 end

@@ -135,14 +135,14 @@ RSpec.describe LinkedList do
   end
 
   describe '#pop method' do
-    xit 'prints and remove last sound' do
+    it 'prints and remove last sound' do
       list = LinkedList.new
       list.append("deep")
       list.append("woo")
       list.append("shi")
       list.append("shu")
       list.append("blop")
-
+      
       expect(list.pop).to eq('blop')
       expect(list.pop).to eq('shu')
       expect(list.to_string).to eq('deep woo shi')
