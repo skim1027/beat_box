@@ -17,6 +17,8 @@ class BeatBox
   end
 
   def play
-    "say -r 500 Boing #{}"
+    sound = @list.to_string
+      `say -r 200 -v Boing "#{sound}"`
+    sound
   end
 end
