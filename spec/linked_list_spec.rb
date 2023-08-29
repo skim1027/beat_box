@@ -106,7 +106,7 @@ RSpec.describe LinkedList do
   end
 
   describe '#find method' do
-    xit 'find the sound at a lotcation' do
+    it 'find the sound at a lotcation' do
       list = LinkedList.new
       list.append("deep")
       list.append("woo")
@@ -121,7 +121,7 @@ RSpec.describe LinkedList do
   end
 
   describe '#include? method' do
-    xit 'tells you if string includes a sound' do
+    it 'tells you if string includes a sound' do
       list = LinkedList.new
       list.append("deep")
       list.append("woo")
